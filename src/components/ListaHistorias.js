@@ -1,8 +1,9 @@
-function ListaHistorias(props) {
+const ListaHistorias = (props) =>  {
   return (
     <div>
-      <ul>lista 1</ul>
-      <ul>lista 2</ul>
+      <ul>Codigo: {props.codigo}</ul>
+      <ul>Puntos: {props.puntos}</ul>
+      <p>consumidos: </p>
     </div>
   );
 }

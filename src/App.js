@@ -7,7 +7,6 @@ function App() {
     <div className="App">
       <header className="App-header">
         <Form></Form>
-        <ListaHistorias></ListaHistorias>
       </header>
     </div>
   );
