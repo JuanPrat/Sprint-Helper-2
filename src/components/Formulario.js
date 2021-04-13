@@ -7,6 +7,8 @@ class Formulario extends React.Component {
     this.state = { codigo: "", puntos: "" };
   }
 
+  componentDidMount(){}
+
   handleClick = (event) => {
     event.preventDefault();
     this.setState({ codigo: this.codigo.value, puntos: this.puntos.value });
@@ -40,5 +42,6 @@ class Formulario extends React.Component {
     );
   }
 }
+
 
 export default Formulario;

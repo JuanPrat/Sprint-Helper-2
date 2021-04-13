@@ -1,6 +1,5 @@
 import './App.css'
 import Form from './components/Formulario'
-import ListaHistorias from './components/ListaHistorias'
 
 function App() {
   return (
