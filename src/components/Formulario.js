@@ -7,9 +7,12 @@ class Formulario extends React.Component {
     this.state = { codigo: "", puntos: "" };
   }
 
-  componentDidMount(){}
+  componentDidMount() { }
 
   handleClick = (event) => {
+    console.log("entre a handleClick")
+    console.log("===>" + this.codigo.value);
+    console.log("===>" + this.puntos.value)
     event.preventDefault();
     this.setState({ codigo: this.codigo.value, puntos: this.puntos.value });
     this.codigo.value = "";
@@ -22,17 +25,19 @@ class Formulario extends React.Component {
         <form>
           <label>Codigo Hu</label>
           <input
+            data-testid="input-codigo"
             type="text"
             name="codigo"
             ref={(inputElement) => (this.codigo = inputElement)}
           ></input>
           <label>Puntos Hu</label>
           <input
+            data-testid="input-puntos"
             type="text"
             name="puntos"
             ref={(inputElement) => (this.puntos = inputElement)}
           ></input>
-          <button onClick={(event) => this.handleClick(event)}>Enviar</button>
+          <button data-testid="enviar-button" className="button" onClick={(event) => this.handleClick(event)}>Enviar</button>
         </form>
         <ListaHistorias
           codigo={this.state.codigo}
