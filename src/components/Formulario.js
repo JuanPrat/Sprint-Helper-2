@@ -10,9 +10,6 @@ class Formulario extends React.Component {
   componentDidMount() { }
 
   handleClick = (event) => {
-    console.log("entre a handleClick")
-    console.log("===>" + this.codigo.value);
-    console.log("===>" + this.puntos.value)
     event.preventDefault();
     this.setState({ codigo: this.codigo.value, puntos: this.puntos.value });
     this.codigo.value = "";
