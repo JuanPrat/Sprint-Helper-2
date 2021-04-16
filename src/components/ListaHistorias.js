@@ -16,6 +16,7 @@ class ListaHistorias extends Component {
   }
 
   saveInLocalStorage = () => {
+    console.log(this.props.codigo)
     if (this.props.codigo !== "" && this.props.puntos !== "") {
       let husArray = this.state.listaHu;
       husArray.push(this.props);
