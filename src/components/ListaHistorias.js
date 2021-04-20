@@ -31,13 +31,11 @@ class ListaHistorias extends Component {
     debugger
     this.state.listaHu.forEach(hu => {
       huArray.push(
-        <div className="card">
           <ul key={hu.codigo}>
             <p >Codigo: {hu.codigo}</p>
             <p>Puntos: {hu.puntos}</p>
             <p>consumidos: </p>
           </ul>
-        </div>
       )
     }
     )
