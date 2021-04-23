@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import { readFromLocalStorage, saveInLocalStorage } from '../utils/LocalStorage'
 
 class ListaHistorias extends Component {
 
   constructor(props){
     super(props)
-    this.state = {  listaHu: localStorage.getItem('hus') ? JSON.parse(localStorage.getItem('hus')) : [] }
+    this.state = {  listaHu:  readFromLocalStorage()}
   }
 
   shouldComponentUpdate(nextProps) {// evalua si el componente deberia renderizarse. devuelve true o false
@@ -12,31 +13,24 @@ class ListaHistorias extends Component {
     if (huArray === null) {
       huArray = []
     }
-    return huArray.filter(hu => hu.codigo === nextProps.codigo).length === 0;
-  }
-
-  saveInLocalStorage = () => {
-    if (this.props.codigo !== "" && this.props.puntos !== "") {
-      let husArray = this.state.listaHu;
-      husArray.push(this.props);
-      this.setState(this.husArray);
-      localStorage.setItem('hus', JSON.stringify(this.state.listaHu))
+    const update = huArray.filter(hu => hu.codigo === nextProps.codigo).length === 0;
+    if(!update){
+      window.alert("Una historia de usuario con este codigo ya existe")
     }
+    return update
   }
 
   render() {
-    this.saveInLocalStorage()
+    saveInLocalStorage(this.props.codigo, this.props.puntos, this.state.listaHu)
     let huArray = []
     debugger
     this.state.listaHu.forEach(hu => {
       huArray.push(
-        <div className="card">
           <ul key={hu.codigo}>
             <p >Codigo: {hu.codigo}</p>
             <p>Puntos: {hu.puntos}</p>
             <p>consumidos: </p>
           </ul>
-        </div>
       )
     }
     )
