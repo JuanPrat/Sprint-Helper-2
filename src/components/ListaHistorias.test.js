@@ -1,18 +1,29 @@
-import React from 'react'
-import { queryByText, render, screen, } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
-import ListaHistorias from './ListaHistorias'
+import { readFromLocalStorage, saveInLocalStorage } from '../utils/LocalStorage'
 
+beforeEach(()=>{
+  localStorage.clear()
+})
 
 test('should save to localStorage', () => {
-  localStorage.clear();
-  localStorage.setItem('hus', JSON.stringify({ codigo: '123', puntos: '5' }))
-
-  render(<ListaHistorias
-    codigo={"123"}
-    puntos={"5"}
-  ></ListaHistorias>);
-
-  expect(screen.getByText('123')).toBeInTheDocument();
+  const hus = saveInLocalStorage("codigo", "puntos", [])
+  expect(hus.length).toBe(1);
 });
+
+test('should save and add without loosign info', ()=> {
+  let hus = [{codigo:"codigo1", puntos:"puntos1"}];
+  hus = saveInLocalStorage("codigo", "puntos", hus)
+  expect(hus.length).toBe(2);
+})
+
+test('should read empty info from localStorage and initialize empty', ()=> {
+  const hus = readFromLocalStorage();
+  expect(hus.length).toBe(0)
+})
+
+test('should read info from localStorage and initialize with data', ()=> {
+  let hus = []
+  hus = saveInLocalStorage("codigo", "puntos", hus)
+  saveInLocalStorage("codigo1", "puntos1", hus)
+  expect(readFromLocalStorage().length).toBe(2)
+})
 
