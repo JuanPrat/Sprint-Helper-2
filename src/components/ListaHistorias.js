@@ -21,14 +21,16 @@ class ListaHistorias extends Component {
   }
 
   render() {
-    saveInLocalStorage(this.props.codigo, this.props.puntos, this.state.listaHu)
+    saveInLocalStorage(this.props.codigo, this.props.puntos,this.props.fecha, this.state.listaHu)
     let huArray = []
     debugger
+    console.log(new Intl.DateTimeFormat('en-US').format(this.props.fecha))
     this.state.listaHu.forEach(hu => {
       huArray.push(
           <ul key={hu.codigo}>
-            <p >Codigo: {hu.codigo}</p>
+            <p>Codigo: {hu.codigo}</p>
             <p>Puntos: {hu.puntos}</p>
+            <p>Creada: {new Intl.DateTimeFormat('en-US').format(new Date(hu.fecha))}</p>
             <p>consumidos: </p>
           </ul>
       )

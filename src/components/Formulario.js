@@ -10,8 +10,9 @@ class Formulario extends React.Component {
   componentDidMount() { }
 
   handleClick = (event) => {
+    debugger
     event.preventDefault();
-    this.setState({ codigo: this.codigo.value, puntos: this.puntos.value });
+    this.setState({ codigo: this.codigo.value, puntos: this.puntos.value, fecha: new Date() });
     this.codigo.value = "";
     this.puntos.value = "";
   };
@@ -39,6 +40,7 @@ class Formulario extends React.Component {
         <ListaHistorias
           codigo={this.state.codigo}
           puntos={this.state.puntos}
+          fecha={this.state.fecha}
         ></ListaHistorias>
       </div>
     );
