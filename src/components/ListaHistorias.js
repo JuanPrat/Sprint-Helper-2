@@ -25,7 +25,7 @@ class ListaHistorias extends Component {
       const fecha1 = new Intl.DateTimeFormat('en-US').format(new Date(fechaHu))
       const fecha2 = new Intl.DateTimeFormat('en-US').format(new Date())
       const fechaActual = new Date()
-      const puntos = 2 * this.restaFechas(fecha1, fecha2);
+      let puntos = 2 * this.restaFechas(fecha1, fecha2);
       if(fechaActual.getHours() < 12){
         puntos = puntos -1 ;
       }
