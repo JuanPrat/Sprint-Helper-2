@@ -26,17 +26,16 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: npm ci
-    - run: npm run build --if-present
-    - run: npm test
-    - name: Install Dependencies
-      run: npm install
-    - name: Build
-      run: npm run build-prod
+    - run: npm run build
     - name: Archive Production Artifact
       uses: actions/upload-artifact@master
       with:
         name: dist
         path: dist
+    - run: npm test
+    - name: Install Dependencies
+      run: npm install
+    
   deploy:
     name: Deploy
     needs: build
