@@ -26,8 +26,8 @@ class ListaHistorias extends Component {
       const fecha2 = new Intl.DateTimeFormat('en-US').format(new Date())
       const fechaActual = new Date()
       let puntos = 2 * this.restaFechas(fecha1, fecha2);
-      if(fechaActual.getHours() < 12){
-        puntos = puntos -1 ;
+      if (fechaActual.getHours() < 12) {
+        puntos = puntos - 1;
       }
       return puntos
     }
@@ -37,9 +37,8 @@ class ListaHistorias extends Component {
   restaFechas = function (f1, f2) {
     var aFecha1 = f1.split('/');
     var aFecha2 = f2.split('/');
-    debugger
-    var fFecha1 = Date.UTC(aFecha1[2], aFecha1[0] , aFecha1[1]- 1);
-    var fFecha2 = Date.UTC(aFecha2[2], aFecha2[0] , aFecha2[1]- 1);
+    var fFecha1 = Date.UTC(aFecha1[2], aFecha1[0], aFecha1[1] - 1);
+    var fFecha2 = Date.UTC(aFecha2[2], aFecha2[0], aFecha2[1] - 1);
     var dif = fFecha2 - fFecha1;
     var dias = Math.floor(dif / (1000 * 60 * 60 * 24));
     return dias;
@@ -50,12 +49,14 @@ class ListaHistorias extends Component {
     let huArray = []
     this.state.listaHu.forEach(hu => {
       huArray.push(
-        <ul key={hu.codigo}>
-          <p>Codigo: {hu.codigo}</p>
-          <p>Puntos: {hu.puntos}</p>
-          <p>Creada: {new Intl.DateTimeFormat('en-US').format(new Date(hu.fecha))}</p>
-          <p>consumidos: {this.calcularPuntosConsumidos(hu.fecha)}</p>
-        </ul>
+        <div className="card">
+          <ul key={hu.codigo}>
+            <p>Codigo: {hu.codigo}</p>
+            <p>Puntos: {hu.puntos}</p>
+            <p>Creada: {new Intl.DateTimeFormat('en-US').format(new Date(hu.fecha))}</p>
+            <p>consumidos: {this.calcularPuntosConsumidos(hu.fecha)}</p>
+          </ul>
+        </div>
       )
     }
     )
