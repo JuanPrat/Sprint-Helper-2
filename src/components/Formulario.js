@@ -20,7 +20,7 @@ class Formulario extends React.Component {
   render() {
     return (
       <div className="grid-container">
-        <div className="formulario">
+        <div className="formulario" >
           <form className="form-flex-container">
             <label>Codigo Hu</label>
             <input

@@ -58,7 +58,7 @@ class ListaHistorias extends Component {
     let huArray = [];
     this.state.listaHu.forEach((hu) => {
       huArray.push(
-        <div className="card">
+        <div className="card" >
           <p className="codigo">{hu.codigo}</p>
           <p className="puntos">Puntos: {hu.puntos}</p>
           <p className="puntos">consumidos: {this.calcularPuntosConsumidos(hu.fecha)}</p>
