@@ -10,3 +10,8 @@ export function saveInLocalStorage(codigo, puntos,fecha,  hus){
 export function readFromLocalStorage(){
     return localStorage.getItem('hus') ? JSON.parse(localStorage.getItem('hus')) : []
 }
+
+export const moduleLocalHost = {
+    saveInLocalStorage,
+    readFromLocalStorage
+}

@@ -34,9 +34,9 @@ test('imprime los valores ingresados en el formulario', ()=> {
     userEvent.type(puntosInput, "8")
     fireEvent.click(enviarButton)
 
-    const pCodigo = screen.queryByText("Codigo: 12345")
+    const pCodigo = screen.queryByText("12345")
     const pPuntos = screen.queryByText("Puntos: 8")
-    
+    debugger
     expect(pCodigo).toBeTruthy()
     expect(pPuntos).toBeTruthy()
 })
