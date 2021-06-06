@@ -6,6 +6,7 @@ class Formulario extends React.Component {
   constructor(props) {
     super(props);
     this.state = { codigo: "", puntos: "" };
+    this.handleClick.bind( this)
   }
 
   componentDidMount() { }
@@ -36,8 +37,8 @@ class Formulario extends React.Component {
               name="puntos"
               ref={(inputElement) => (this.puntos = inputElement)}
             ></input>
-            <button data-testid="enviar-button" className="button" onClick={(event) => this.handleClick(event)}>Enviar</button>
           </form>
+          <button data-testid="enviar-button" className="button" onClick={(event) => this.handleClick(event)}>Enviar</button>
         </div>
         <ListaHistorias
           codigo={this.state.codigo}
