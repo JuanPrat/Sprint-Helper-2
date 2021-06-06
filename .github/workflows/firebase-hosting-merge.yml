@@ -7,18 +7,21 @@ name: Build, Test, Deploy
     branches:
       - master
 jobs:
+
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - run: npm install
       - run: npm run build
+      
   test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - run: npm install
       - run: npm run test
+      
   build_and_deploy:
     runs-on: ubuntu-latest
     steps:
